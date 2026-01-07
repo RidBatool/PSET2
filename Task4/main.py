@@ -9,8 +9,8 @@ def count_payment_combinations(coins, total_sum, ind=0):
 
     return include + exclude
 print("First test case: ")
-print(count_payment_combinations([1, 2, 3], 4))  # Output: 4
+print(count_payment_combinations([1, 2, 3], 4)) 
 print("second test case:")
-print(count_payment_combinations([2, 5, 3, 6], 10))  # Output: 5  
+print(count_payment_combinations([2, 5, 3, 6], 10))  
 print("third test case: ")
-print(count_payment_combinations([5],4))  # Output: 6  
+print(count_payment_combinations([5],4))  
