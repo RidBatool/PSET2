@@ -13,7 +13,7 @@ def min_cancelled_bookings(intervals):
                 continue
         else:
             ans_list+=[sorted_arr[i]]
-        # print(ans_list)
+       
     return len(intervals)-len(ans_list)
 
 print("First Test case: ")
