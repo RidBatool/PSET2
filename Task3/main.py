@@ -1,17 +1,21 @@
-def find_longest_mirror_length(s):
-    if not s:
-        return 0
-    if len(s) == 1:
-        return 1
 
-    if s[0] == s[-1]:
-        return 2 + find_longest_mirror_length(s[1:-1])
-    else:
-        return max(
-            find_longest_mirror_length(s[1:]),
-            find_longest_mirror_length(s[:-1])
-        )
-    
+def find_longest_mirror_length(s):
+    n = len(s)
+    dp = [[0] * n for _ in range(n)]
+        
+    for i in range(n):
+        dp[i][i] = 1
+        
+    for length in range(2, n+1):
+        for i in range(n - length + 1):
+            j = i + length - 1
+            if s[i] == s[j]:
+                dp[i][j] = 2 + (dp[i+1][j-1] if length > 2 else 0)
+            else:
+                dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+        
+    return dp[0][n-1]
+  
 print("First Test case: ")
 print(find_longest_mirror_length("bbabcbcab"))  
 print("Second Test case: ")
